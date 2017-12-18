@@ -78,6 +78,12 @@ func (tn *TimestampNano) UnmarshalJSON(data []byte) error {
 	return err
 }
 
+// Return the struct time instead of TimestampNano
+func (tn TimestampNano) ToTime() (time.Time) {
+	t := time.Time(tn)
+	return t
+}
+
 type IP net.IP
 
 // MarshalText satisfies TextMarshaler
